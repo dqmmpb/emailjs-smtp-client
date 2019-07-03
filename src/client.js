@@ -105,7 +105,7 @@ class SmtpClient {
     // allows certificate handling for platform w/o native tls support
     // oncert is non standard so setting it might throw if the socket object is immutable
     try {
-      this.socket.oncert = this.oncert
+      this.socket.oncert = (cert) => { this.oncert && this.oncert(cert) }
     } catch (E) { }
     this.socket.onerror = this._onError.bind(this)
     this.socket.onopen = this._onOpen.bind(this)
