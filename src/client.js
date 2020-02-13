@@ -99,7 +99,8 @@ class SmtpClient {
       useSecureTransport: this._secureMode,
       ca: this.options.ca,
       tlsWorkerPath: this.options.tlsWorkerPath,
-      ws: this.options.ws
+      ws: this.options.ws,
+      timeout: this.options.timeout
     })
 
     // allows certificate handling for platform w/o native tls support
